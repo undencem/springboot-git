@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee Management System</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container my-2">
+   <div class="shadow p-2 mb-3 bg-white rounded">
+      <h1>Update Employee</h1>
+   </div>  
+
+<form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+   <div class="form-group">
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}"/>         
+       
+    	<input type="text" th:field="*{firstName}"  class="form-control mb-4 col-4">
+    	<input type="text" th:field="*{lastName}"  class="form-control mb-4 col-4">
+    	<input type="text" th:field="*{email}"  class="form-control mb-4 col-4">
+    	<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    	<button type="submit" class="btn btn-primary btn-sm p-2 mb-3">Update Employee</button>
+    </div>
+</form>
+<hr>
+<a th:href="@{/}">Back to Employee List</a>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
