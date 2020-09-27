@@ -2,6 +2,8 @@ package net.javaguides.springboot.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import net.javaguides.springboot.model.Employee;
 
 public interface EmployeeService { 
@@ -14,4 +16,9 @@ public interface EmployeeService {
    void deleteEmployeeById(long id);
    
    List<Employee> checkDuplicates(String firstName,String lastName,String email);
+   
+   // For pagination and sorting
+   Page<Employee> findPaginated(int pageNo,int pageSize,String sortField,String sortDirection);
+   
+   
 }

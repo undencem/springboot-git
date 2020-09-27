@@ -12,6 +12,5 @@ import net.javaguides.springboot.model.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee,Long> { 
 	
 	@Query("SELECT employee FROM Employee employee WHERE firstName = ?1 AND lastName = ?2 AND email = ?3")
-	List<Employee> findByFirstNameAndLastNameAndEmail(String firstName,String lastName,String email);
-	
+	List<Employee> findByFirstNameAndLastNameAndEmail(String firstName,String lastName,String email);	
 }
