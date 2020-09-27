@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:href="http://www.thymeleaf.org">
+<head> 
+<meta charset="UTF-8">
+<title>Update Employee</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="container my-2">
+   <div class="shadow p-2 mb-3 bg-white rounded">
+      <h1>Update Employee</h1>
+   </div>  
+
+<form action="#" th:action="@{/updateNew}" th:object="${employee}" method="post">
+<div class="form-group">
+	<input type="hidden" th:field="*{id}" placeholder="${employee.id}">
+	
+	<input type="text" th:field="*{firstName}" value="${employee.firstName}" class="form-control mb-4 col-4">
+	<div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" >Name error</div>
+	
+	<input type="text" th:field="*{lastName}" value="${employee.lastName}" class="form-control mb-4 col-4">
+	<div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" >Surname error</div>
+		
+	<input type="text" th:field="*{email}" value="${employee.email}" class="form-control mb-4 col-4">
+	<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >Email error</div>
+		<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <button type="submit" class="btn btn-sm btn-primary p-2 mb-3">Update Employee</button>
+</div>
+</form>
+<a th:href="@{/}">Back to list</a>
+</div>
+</body>
+</html>
